@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 
+import Input from '../Input';
 import Radio from '../Radio';
 import Toggle from '../Toggle';
 
-import { initialValues, PAYMENT_OPTIONS } from './consts';
-import { IFormData, IProps } from './types';
+import { PAYMENT_OPTIONS, PaymentOptionValue } from './consts';
+import { IProps } from './types';
 
 export const Form: React.FC<IProps> = (props) => {
   const { handleSubmit, paymentOption, withVat } = props;
+  const isMinimalOptionSelected = paymentOption === PaymentOptionValue.MINIMAL;
 
   return (
     <form onSubmit={handleSubmit} noValidate={true}>
@@ -23,20 +25,25 @@ export const Form: React.FC<IProps> = (props) => {
             id={value}
           />
         ))}
-        <Field
-          name='withVat'
-          component={Toggle}
-          props={{ value: withVat }}
-          // label={label}
-          id='withVat'
-        />
+        {!isMinimalOptionSelected && (
+          <div>
+            <Field
+              name='withVat'
+              component={Toggle}
+              props={{ value: withVat }}
+              id='withVat'
+            />
+            <Field
+              name='sum'
+              component={Input}
+              id='sum'
+            />
+          </div>
+        )}
       </fieldset>
 
     </form>
   );
 }
 
-export default reduxForm<IFormData>({
-  form: 'calculator',
-  initialValues
-})(Form as any);
+export default Form;

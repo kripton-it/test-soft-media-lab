@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Radio: React.FC = (field: any) => {
-  const { id, input, label, ...rest } = field
+  const { id, input, label, ...rest } = field;
   const checked = input.value === rest.value;
   return (
     <div>

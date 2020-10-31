@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
-import { Field, InjectedFormProps, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 
 import Radio from '../Radio';
+import Toggle from '../Toggle';
 
-import { PAYMENT_OPTIONS, PaymentOptionValue } from './consts';
+import { initialValues, PAYMENT_OPTIONS } from './consts';
+import { IFormData, IProps } from './types';
 
-export const Form: React.FC<InjectedFormProps<{}>> = (props: any) => {
-  const { handleSubmit } = props;
+export const Form: React.FC<IProps> = (props) => {
+  const { handleSubmit, paymentOption, withVat } = props;
 
   return (
     <form onSubmit={handleSubmit} noValidate={true}>
-      {PAYMENT_OPTIONS.map(({ label, value }) => (
-         <Field
-         name='paymentOption'
-         component={Radio}
-         props={{ value }}
-         label={label}
-         id={value}
-       />
-      ))}
+      <fieldset>
+        <legend>Сумма</legend>
+        {PAYMENT_OPTIONS.map(({ label, value }) => (
+          <Field
+            name='paymentOption'
+            component={Radio}
+            props={{ value }}
+            label={label}
+            id={value}
+          />
+        ))}
+        <Field
+          name='withVat'
+          component={Toggle}
+          props={{ value: withVat }}
+          // label={label}
+          id='withVat'
+        />
+      </fieldset>
+
     </form>
   );
 }
 
-export default reduxForm<{}>({
+export default reduxForm<IFormData>({
   form: 'calculator',
-  initialValues: {
-    paymentOption: PaymentOptionValue.MONTH
-  }
-})(Form);
+  initialValues
+})(Form as any);

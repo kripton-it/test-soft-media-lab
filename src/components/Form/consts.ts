@@ -35,3 +35,8 @@ export const PAYMENT_OPTIONS: IOption[] = [
     value: PaymentOptionValue.HOUR
   }
 ];
+
+export const initialValues = {
+  paymentOption: PaymentOptionValue.MONTH,
+  withVat: 'on'
+};

@@ -38,5 +38,6 @@ export const PAYMENT_OPTIONS: IOption[] = [
 
 export const initialValues = {
   paymentOption: PaymentOptionValue.MONTH,
-  withVat: 'on'
+  sum: '0',
+  withVat: false
 };

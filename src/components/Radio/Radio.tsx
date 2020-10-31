@@ -1,15 +1,15 @@
 import React from 'react';
 
 const Radio: React.FC = (field: any) => {
-  const { id, input, label, ...rest } = field;
-  const checked = input.value === rest.value;
+  const { id, input, label, value } = field;
+  const checked = input.value === value;
   return (
     <div>
       <input
         type='radio'
         id={id}
         { ...input }
-        { ...rest }
+        value={value}
         checked={checked}
       />
       <label htmlFor={id}>{label}</label>

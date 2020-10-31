@@ -9,6 +9,6 @@ const selector = formValueSelector('calculator');
 
 export const mapStateToProps = (state: any): IStateToInputProps => ({
   paymentOption: selector(state, 'paymentOption') || initialValues.paymentOption
-})
+});
 
 export default connect(mapStateToProps)(Input);

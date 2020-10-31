@@ -1,25 +1,23 @@
 import React from 'react';
+import NumberFormat from 'react-number-format';
 
 import { getLabel } from '../../util';
 
 const Input: React.FC = (field: any) => {
   const { id, input, paymentOption, ...rest } = field;
   const label = getLabel(paymentOption);
+
   return (
     <div>
-      <input type="text" id={id} { ...input } { ...rest } />
-      <label htmlFor={id}>{label}</label>
-      {/* <Label>{field.label}</Label>
-      <Input
-        {...field.input}
-        type={field.type}
-        placeholder={field.placeHolder}
-        max={field.maxDate}
-        min={field.minDate}
-        step={field.step}
-        disabled={field.disabled}
+      <NumberFormat
+        decimalScale={0}
+        thousandSeparator=' '
+        type="text"
+        id={id}
+        { ...input }
+        { ...rest }
       />
-      {field.meta.touched && <p className="text-danger">{field.meta.error}</p>} */}
+      <label htmlFor={id}>{label}</label>
     </div>
   )
 };

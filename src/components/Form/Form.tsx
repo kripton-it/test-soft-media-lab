@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Field } from 'redux-form';
 
+import Info from '../Info';
 import Input from '../Input';
 import Radio from '../Radio';
 import Toggle from '../Toggle';
@@ -30,7 +31,6 @@ export const Form: React.FC<IProps> = (props) => {
             <Field
               name='withVat'
               component={Toggle}
-              props={{ value: withVat }}
               id='withVat'
             />
             <Field
@@ -40,6 +40,7 @@ export const Form: React.FC<IProps> = (props) => {
             />
           </div>
         )}
+        {paymentOption === PaymentOptionValue.MONTH && <Info />}
       </fieldset>
 
     </form>

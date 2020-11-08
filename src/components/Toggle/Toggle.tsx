@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import './Toggle.scss';
+import { IToggleProps } from './types';
 
-const Toggle: React.FC = (field: any) => {
-  const { id, input, labels, withVat } = field;
+const Toggle: FC<IToggleProps> = ({ id, input, labels, withVat }) => {
 
   return (
     <div className='toggle_wrapper'>

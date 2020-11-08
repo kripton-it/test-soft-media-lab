@@ -1,6 +1,6 @@
 export interface IStateToInfoProps {
-  sum: number
-  withVat: string
+  sum: string
+  withVat: boolean
 }
 
-export type IProps = IStateToInfoProps
+export type IInfoProps = IStateToInfoProps

@@ -7,11 +7,11 @@ import Radio from '../Radio';
 import Toggle from '../Toggle';
 
 import { PAYMENT_OPTIONS, PaymentOptionValue, toggleLabels } from './consts';
-import { IProps } from './types';
+import { IFormProps } from './types';
 
 import './Form.scss';
 
-export const Form: FC<IProps> = (props) => {
+export const Form: FC<IFormProps> = (props) => {
   const { handleSubmit, paymentOption } = props;
   const isMinimalOptionSelected = paymentOption === PaymentOptionValue.MINIMAL;
 
@@ -26,9 +26,7 @@ export const Form: FC<IProps> = (props) => {
                 <Field
                   name='paymentOption'
                   component={Radio}
-                  props={{ ...option }}
-                  // label={label}
-                  id={option.value}
+                  props={{ ...option, id: option.value }}
                 />
               </li>
             ))
@@ -39,13 +37,12 @@ export const Form: FC<IProps> = (props) => {
             <Field
               name='withVat'
               component={Toggle}
-              props={{ labels: toggleLabels }}
-              id='withVat'
+              props={{ labels: toggleLabels, id: 'withVat' }}
             />
             <Field
               name='sum'
               component={Input}
-              id='sum'
+              props={{ id: 'sum' }}
             />
           </div>
         )}

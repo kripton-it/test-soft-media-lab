@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import NumberFormat from 'react-number-format';
 
 import { getLabel } from '../../util';
 
 import './Input.scss';
+import { IInputProps } from './types';
 
-const Input: React.FC = (field: any) => {
-  const { id, input, paymentOption, ...rest } = field;
+const Input: FC<IInputProps> = ({ id, input, paymentOption, ...rest }) => {
   const label = getLabel(paymentOption);
 
   return (

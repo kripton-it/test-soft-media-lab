@@ -8,8 +8,7 @@ import { IFormData, IStateToFormProps } from './types';
 const selector = formValueSelector('calculator');
 
 export const mapStateToProps = (state: any): IStateToFormProps => ({
-  paymentOption: selector(state, 'paymentOption') || initialValues.paymentOption/* ,
-  withVat: selector(state, 'withVat') || initialValues.withVat */
+  paymentOption: selector(state, 'paymentOption') || initialValues.paymentOption
 })
 
 const reduxFormWrapper = reduxForm<IFormData>({

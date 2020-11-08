@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { getSumInfo } from '../../util';
 import { VAT_RATE } from '../../util/const';
+import { IInfoProps } from './types';
 import './Info.scss';
 
-const Info: React.FC = ({ sum, withVat }: any) => {
+const Info: FC<IInfoProps> = ({ sum, withVat }) => {
   const sumInfo = getSumInfo(sum, withVat);
 
   return (

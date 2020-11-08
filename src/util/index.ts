@@ -1,16 +1,16 @@
-import { PaymentOptionValue } from "../components/Form/consts";
+import { PaymentOptionValue } from '../components/Form/consts';
 import { VAT_RATE } from './const';
 
 export const getLabel = (paymentOption: string): string => {
   switch (paymentOption) {
     case PaymentOptionValue.DAY:
-      return "рублей в день";
+      return ' в день';
 
     case PaymentOptionValue.HOUR:
-      return "рублей в час";
+      return ' в час';
 
     case PaymentOptionValue.MONTH:
-      return "рублей";
+      return '';
     
     default:
       return '';

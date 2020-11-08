@@ -1,0 +1,19 @@
+.input_field {
+  width: 100px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  outline: none;
+  font-weight: bold;
+  opacity: 0.5;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+.input_field:focus {
+  opacity: 1;
+}
+
+.input_label {
+  font-weight: bold;
+}

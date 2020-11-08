@@ -6,13 +6,14 @@ export enum PaymentOptionValue {
 };
 
 export enum PaymentOptionLabel {
-  DAY = 'Оклад за день',
-  HOUR = 'Оклад за час',
+  DAY = 'Оплата за день',
+  HOUR = 'Оплата за час',
   MINIMAL = 'МРОТ',
   MONTH = 'Оклад за месяц'
 };
 
 export interface IOption {
+  hint?: string
   label: string
   value: string
 }
@@ -23,6 +24,7 @@ export const PAYMENT_OPTIONS: IOption[] = [
     value: PaymentOptionValue.MONTH
   },
   {
+    hint: 'МРОТ - минимальный размер оплаты труда. Разный для разных регионов',
     label: PaymentOptionLabel.MINIMAL,
     value: PaymentOptionValue.MINIMAL
   },

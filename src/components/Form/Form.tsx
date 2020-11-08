@@ -18,13 +18,13 @@ export const Form: React.FC<IProps> = (props) => {
     <form onSubmit={handleSubmit} noValidate={true}>
       <fieldset>
         <legend>Сумма</legend>
-        {PAYMENT_OPTIONS.map(({ label, value }) => (
+        {PAYMENT_OPTIONS.map(option => (
           <Field
             name='paymentOption'
             component={Radio}
-            props={{ value }}
-            label={label}
-            id={value}
+            props={{ ...option }}
+            // label={label}
+            id={option.value}
           />
         ))}
         {!isMinimalOptionSelected && (

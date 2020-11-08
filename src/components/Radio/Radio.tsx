@@ -11,7 +11,7 @@ const Radio: React.FC = (field: any) => {
     <div className='radio_wrapper'>
       <input
         type='radio'
-        className='radio_input'
+        className='visually-hidden radio_input'
         id={id}
         { ...input }
         value={value}

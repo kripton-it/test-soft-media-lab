@@ -1,18 +1,29 @@
 import React from 'react';
 
+import './Toggle.scss';
+
 const Toggle: React.FC = (field: any) => {
-  const { id, input, withVat } = field;
+  const { id, input, labels, withVat } = field;
 
   return (
-    <div>
-      <label htmlFor={id}>Указать с НДФЛ</label>
-      <input
-        type='checkbox'
-        id={id}
-        { ...input }
-        checked={withVat}
-      />
-      <label htmlFor={id}>Без НДФЛ</label>
+    <div className='toggle_wrapper'>
+      <label htmlFor={id} className={`toggle_label${!withVat ? ' toggle_label--muted' : ''}`}>
+        {labels.yes}
+      </label>
+      <div className='toggle_input'>
+        <input
+          type='checkbox'
+          className='toggle_checkbox'
+          id={id}
+          { ...input }
+          checked={withVat}
+        />
+        <span className='toggle_knobs' />
+        <span className='toggle_layer' />
+      </div>
+      <label htmlFor={id} className={`toggle_label${withVat ? ' toggle_label--muted' : ''}`}>
+        {labels.no}
+      </label>
     </div>
   )
 };

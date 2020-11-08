@@ -41,3 +41,8 @@ export const initialValues = {
   sum: '0',
   withVat: false
 };
+
+export const toggleLabels = {
+  yes: 'Указать с НДФЛ',
+  no: 'Без НДФЛ'
+}

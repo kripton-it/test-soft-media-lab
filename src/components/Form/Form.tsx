@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC } from 'react';
 import { Field } from 'redux-form';
 
 import Info from '../Info';
@@ -9,26 +9,33 @@ import Toggle from '../Toggle';
 import { PAYMENT_OPTIONS, PaymentOptionValue, toggleLabels } from './consts';
 import { IProps } from './types';
 
-export const Form: React.FC<IProps> = (props) => {
-  const { handleSubmit, paymentOption, withVat } = props;
+import './Form.scss';
+
+export const Form: FC<IProps> = (props) => {
+  const { handleSubmit, paymentOption } = props;
   const isMinimalOptionSelected = paymentOption === PaymentOptionValue.MINIMAL;
 
-
   return (
-    <form onSubmit={handleSubmit} noValidate={true}>
-      <fieldset>
-        <legend>Сумма</legend>
-        {PAYMENT_OPTIONS.map(option => (
-          <Field
-            name='paymentOption'
-            component={Radio}
-            props={{ ...option }}
-            // label={label}
-            id={option.value}
-          />
-        ))}
+    <form onSubmit={handleSubmit} noValidate={true} className='form'>
+      <fieldset className='form_fieldset'>
+        <legend className='form_legend'>Сумма</legend>
+        <ul className='form_payment-options-list'>
+          {
+            PAYMENT_OPTIONS.map(option => (
+              <li key={option.value}>
+                <Field
+                  name='paymentOption'
+                  component={Radio}
+                  props={{ ...option }}
+                  // label={label}
+                  id={option.value}
+                />
+              </li>
+            ))
+          }
+        </ul>
         {!isMinimalOptionSelected && (
-          <div>
+          <div className='form_input'>
             <Field
               name='withVat'
               component={Toggle}

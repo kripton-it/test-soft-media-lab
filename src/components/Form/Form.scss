@@ -1,0 +1,31 @@
+.form {
+  outline: 1px solid red;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.form_fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form_legend {
+  color: gray;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.form_payment-options-list {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.form_input {
+  padding-left: 30px;
+  margin-bottom: 20px;
+}

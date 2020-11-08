@@ -2,7 +2,7 @@ import { InjectedFormProps } from 'redux-form';
 
 export interface IStateToFormProps {
   paymentOption: string
-  withVat: boolean
+  // withVat: boolean
 }
 
 export interface IFormData {
